@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 17:35:57 by juan-her          #+#    #+#             */
-/*   Updated: 2025/11/11 17:08:44 by juan-her         ###   ########.fr       */
+/*   Updated: 2025/11/13 21:33:11 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 # include <unistd.h>
 # include "ft_printf/src/ft_printf.h"
 # include "libft/libft.h"
+# include "free.h"
 
 int		ft_parsing(char **s, t_list **a);
 int		ft_order(t_list *list);
 int		ft_check(t_list *list);
-void	ft_free(t_data *stacks);
 
 #endif 

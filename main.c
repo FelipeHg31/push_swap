@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 17:31:32 by juan-her          #+#    #+#             */
-/*   Updated: 2025/11/12 17:07:42 by juan-her         ###   ########.fr       */
+/*   Updated: 2025/11/13 22:01:28 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,20 @@ static	int	ft_check_data(t_list *data)
 	return (1);
 }
 
-/* static void ft_order_size(t_data **data)
+static void	ft_order_size(t_data **data)
 {
-	int size;
+	int	size;
 
 	size = ft_lstsize((*data)->a);
-	if(size == 2)
+	if (size == 2)
 		ft_order_2(data);
 	else if (size == 3)
 		ft_order_3(data);
-} */
+	else if (size == 4)
+		ft_order_4(data);
+	else if (size == 5)
+		ft_order_5(data);
+}
 
 int	main(int ac, char **av)
 {
@@ -41,23 +45,22 @@ int	main(int ac, char **av)
 
 	stacks = ft_calloc(sizeof(t_data), 1);
 	stacks->a = NULL;
-	if (ac < 1)
-		return (ft_free_error(stacks));
+	if (ac < 2)
+		return (ft_free_error(&stacks));
 	if (!ft_parsing(av, &stacks->a))
-		return (ft_free_error(stacks));
+		return (ft_free_error(&stacks));
 	cdata = ft_check_data(stacks->a);
 	if (cdata == 2)
 	{
-		ft_free(stacks);
+		ft_free(&stacks);
 		ft_printf("This list is order!\n");
 		return (0);
 	}
 	else if (cdata == 0)
-		return (ft_free_error(stacks));
+		return (ft_free_error(&stacks));
 	ft_set(stacks);
-	//ft_order_size(&stacks);
-	ft_swap(&(stacks->a));
+	ft_order_size(&stacks);
 	ft_show(stacks->a);
-	ft_free(stacks);
+	ft_free(&stacks);
 	return (0);
 }

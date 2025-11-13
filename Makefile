@@ -6,7 +6,7 @@
 #    By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/31 04:46:41 by juan-her          #+#    #+#              #
-#    Updated: 2025/11/12 12:47:54 by juan-her         ###   ########.fr        #
+#    Updated: 2025/11/13 21:01:44 by juan-her         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIBFT = $(SRCLIBFT)/libft.a
 SRCPRINTF = ./ft_printf
 FT_PRINTF = $(SRCPRINTF)/libftprintf.a
 SRC = main.c parsing.c check_list.c movements.c movements2.c set_list.c order_min.c \
-		ft_free.c
+		ft_free.c order_5.c
 OBJ_URL = ./obj
 OBJ = $(SRC:%.c=$(OBJ_URL)/%.o)
 INCLUDE = -I$(SRCLIBFT) -I$(SRCPRINTF)

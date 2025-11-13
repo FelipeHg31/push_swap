@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 17:49:35 by juan-her          #+#    #+#             */
-/*   Updated: 2025/11/12 17:05:24 by juan-her         ###   ########.fr       */
+/*   Updated: 2025/11/13 15:37:09 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 void	ft_swap(t_list **list)
 {
-	t_list	*temp;
+	t_list	*first;
+	t_list	*second;
 
-	if (!*list || !list)
+	if (!list || !*list || !list)
 		return ;
-	temp = *list;
-	temp->before = (*list)->next;
-	temp->next = temp;
-	(*list) = (*list)->next;
-	(*list)->before = NULL;
-	(*list)->next = temp;
+	first = *list;
+	second = (*list)->next;
+	first->before = second;
+	first->next = second->next;
+	second->next = first;
+	second->before = first;
+	*list = second;
 	ft_printf("sa\n");
 }
 
@@ -31,7 +33,7 @@ void	ft_pb(t_data **data)
 {
 	t_list	*node;
 
-	if (data || !(*data) || !(*data)->a || !(*data)->a->next)
+	if (!data || !(*data))
 		return ;
 	node = (*data)->a;
 	(*data)->a = (*data)->a->next;
@@ -45,22 +47,23 @@ void	ft_pa(t_data **data)
 {
 	t_list	*node;
 
-	if (data || !(*data) || !(*data)->a || !(*data)->a->next)
+	if (!data || !(*data) || !(*data)->a)
 		return ;
 	node = (*data)->b;
-	(*data)->b = (*data)->b->next;
+	if (node)
+		(*data)->b = (*data)->b->next;
 	if ((*data)->b)
 		(*data)->b->before = NULL;
 	ft_lstadd_front(&(*data)->a, node);
 	ft_printf("pa\n");
 }
 
-void ft_show(t_list *list)
+void	ft_show(t_list *list)
 {
-	t_list *node;
+	t_list	*node;
 
 	node = list;
-	while(node)
+	while (node)
 	{
 		ft_printf("%d\n", node->num);
 		node = node->next;
