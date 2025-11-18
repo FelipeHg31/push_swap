@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 00:37:05 by juan-her          #+#    #+#             */
-/*   Updated: 2025/11/13 15:05:53 by juan-her         ###   ########.fr       */
+/*   Updated: 2025/11/18 14:57:21 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	ft_rrb(t_data **data)
 	t_list	*node;
 	t_list	*before_node;
 
-	if (!data || !(*data) || !(*data)->b || !(*data)->a->next)
+	if (!data || !(*data) || !(*data)->b)
 		return ;
 
 	node = (*data)->b;

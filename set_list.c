@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 15:41:44 by juan-her          #+#    #+#             */
-/*   Updated: 2025/11/13 18:06:34 by juan-her         ###   ########.fr       */
+/*   Updated: 2025/11/18 13:36:47 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ static void	ft_set_init(t_list *data)
 	while (list)
 	{
 		list->id = -1;
+		list->chunk = 0;
+		list->median = 0;
 		list = list->next;
 	}
 }
@@ -72,5 +74,15 @@ void	ft_set(t_data *data)
 		ft_set_id(data->a, min, pos);
 		pos++;
 	}
+}
+
+t_list	*ft_search_id(t_list *lst, int id)
+{
+	t_list	*node;
+
+	node = lst;
+	while (node->id != id)
+		node = node->next;
+	return (node);
 }
 

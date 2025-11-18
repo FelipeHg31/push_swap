@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 02:03:23 by juan-her          #+#    #+#             */
-/*   Updated: 2025/11/08 19:40:03 by juan-her         ###   ########.fr       */
+/*   Updated: 2025/11/17 17:33:34 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ t_list	*ft_lstnew(int n, int id)
 		return (NULL);
 	list->num = n;
 	list->id = id;
-	list->cost = 0;
+	list->median = 0;
+	list->chunk = 0;
 	list->next = NULL;
 	list->before = NULL;
 	return (list);

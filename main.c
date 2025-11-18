@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 17:31:32 by juan-her          #+#    #+#             */
-/*   Updated: 2025/11/13 22:01:28 by juan-her         ###   ########.fr       */
+/*   Updated: 2025/11/18 14:45:33 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ static void	ft_order_size(t_data **data)
 		ft_order_4(data);
 	else if (size == 5)
 		ft_order_5(data);
+	else
+	{
+		ft_set_chunks(data);
+		ft_order_num(data);
+	}
 }
 
 int	main(int ac, char **av)

@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 17:49:35 by juan-her          #+#    #+#             */
-/*   Updated: 2025/11/13 15:37:09 by juan-her         ###   ########.fr       */
+/*   Updated: 2025/11/18 15:01:34 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_pa(t_data **data)
 {
 	t_list	*node;
 
-	if (!data || !(*data) || !(*data)->a)
+	if (!data || !(*data))
 		return ;
 	node = (*data)->b;
 	if (node)
