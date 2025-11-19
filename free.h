@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 12:34:25 by juan-her          #+#    #+#             */
-/*   Updated: 2025/11/13 21:31:28 by juan-her         ###   ########.fr       */
+/*   Updated: 2025/11/19 20:10:10 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include "ft_printf/src/ft_printf.h"
 # include "libft/libft.h"
 
-int     ft_free_error(t_data **stacks);
+int		ft_free_error(t_data **stacks);
 void	ft_free(t_data **stacks);
 
 #endif

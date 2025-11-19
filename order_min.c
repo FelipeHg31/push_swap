@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 17:14:00 by juan-her          #+#    #+#             */
-/*   Updated: 2025/11/13 22:05:53 by juan-her         ###   ########.fr       */
+/*   Updated: 2025/11/19 21:02:26 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,23 +91,22 @@ static int	ft_order4_2(t_data **data, int pos_min, int pos_max)
 
 void	ft_order_4(t_data **data)
 {
-	t_list	*max;
-	t_list	*min;
+	t_list	*min_max[2];
 
-	max = (*data)->a;
-	min = (*data)->a;
-	while (max->id != 3)
-		max = max->next;
-	while (min->id != 0)
-		min = min->next;
-	if (min->pos == 1)
+	min_max[1] = (*data)->a;
+	min_max[0] = (*data)->a;
+	while (min_max[1]->id != 3)
+		min_max[1] = min_max[1]->next;
+	while (min_max[0]->id != 0)
+		min_max[0] = min_max[0]->next;
+	if (min_max[0]->pos == 1)
 	{
 		ft_pb(data);
 		ft_set(*data);
 		ft_order_3(data);
 		ft_pa(data);
 	}
-	else if (min->pos == 4)
+	else if (min_max[0]->pos == 4)
 	{
 		ft_rra(data);
 		ft_pb(data);
@@ -116,7 +115,5 @@ void	ft_order_4(t_data **data)
 		ft_pa(data);
 	}
 	else
-		ft_order4_2(data, min->pos, max->pos);
+		ft_order4_2(data, min_max[0]->pos, min_max[1]->pos);
 }
-
-

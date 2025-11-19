@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 04:13:58 by juan-her          #+#    #+#             */
-/*   Updated: 2025/11/08 19:38:11 by juan-her         ###   ########.fr       */
+/*   Updated: 2025/11/19 21:04:44 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,3 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	size->next = new;
 	new->before = size;
 }
-

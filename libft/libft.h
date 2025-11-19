@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 20:56:37 by juan-her          #+#    #+#             */
-/*   Updated: 2025/11/17 17:54:38 by juan-her         ###   ########.fr       */
+/*   Updated: 2025/11/19 17:43:47 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ typedef struct s_list
 {
 	int				num;
 	int				id;
-	int				median;
-	int				chunk;
 	int				pos;
 	struct s_list	*next;
 	struct s_list	*before;
@@ -32,8 +30,6 @@ typedef struct s_ps_data
 {
 	t_list	*a;
 	t_list	*b;
-	int		chunks;
-	int		lot;
 }	t_data;
 
 size_t	ft_strlen(const char *s);

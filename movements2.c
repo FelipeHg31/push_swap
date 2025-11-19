@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 00:37:05 by juan-her          #+#    #+#             */
-/*   Updated: 2025/11/18 14:57:21 by juan-her         ###   ########.fr       */
+/*   Updated: 2025/11/19 21:01:38 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,14 @@ void	ft_rra(t_data **data)
 
 	if (!data || !(*data) || !(*data)->a || !(*data)->a->next)
 		return ;
-
 	node = (*data)->a;
 	while (node->next)
 		node = node->next;
 	before_node = node->before;
 	before_node->next = NULL;
-	node->before = NULL;        
-	node->next = (*data)->a;    
-	(*data)->a->before = node;  
+	node->before = NULL;
+	node->next = (*data)->a;
+	(*data)->a->before = node;
 	(*data)->a = node;
 	ft_printf("rra\n");
 }
@@ -69,15 +68,14 @@ void	ft_rrb(t_data **data)
 
 	if (!data || !(*data) || !(*data)->b)
 		return ;
-
 	node = (*data)->b;
 	while (node->next)
 		node = node->next;
 	before_node = node->before;
 	before_node->next = NULL;
-	node->before = NULL;        
-	node->next = (*data)->b;    
-	(*data)->b->before = node;  
+	node->before = NULL;
+	node->next = (*data)->b;
+	(*data)->b->before = node;
 	(*data)->b = node;
 	ft_printf("rrb\n");
 }

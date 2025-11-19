@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 18:01:41 by juan-her          #+#    #+#             */
-/*   Updated: 2025/11/18 00:50:28 by juan-her         ###   ########.fr       */
+/*   Updated: 2025/11/19 19:41:38 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	ft_order_2(t_data **data);
 void	ft_order_3(t_data **data);
 void	ft_order_4(t_data **data);
 void	ft_order_5(t_data **data);
-void    ft_order_num(t_data **data);
-t_list	*ft_search_id (t_list *lst, int id);
-void    ft_set_chunks(t_data **data);
+void	ft_order_6(t_data **data);
+void	ft_sort_b(t_data **data);
+void	ft_sort_back(t_data **data);
 void	ft_show(t_list *list);
 #endif

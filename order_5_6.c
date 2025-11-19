@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   order_5.c                                          :+:      :+:    :+:   */
+/*   order_5_6.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 21:01:03 by juan-her          #+#    #+#             */
-/*   Updated: 2025/11/17 22:15:05 by juan-her         ###   ########.fr       */
+/*   Updated: 2025/11/19 21:24:53 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	ft_extract(t_data **data, t_list *m)
 
 	len = ft_lstsize((*data)->a);
 	position = m->pos;
-	if (position < (len / 2))
+	if (position <= (len / 2))
 	{
 		while (position > 1)
 		{
@@ -60,4 +60,15 @@ void	ft_order_5(t_data **data)
 	ft_order_3(data);
 	ft_pa(data);
 	ft_pa(data);
+}
+
+void	ft_order_6(t_data **data)
+{
+	t_list	*min;
+
+	ft_min(data, &min);
+	ft_extract(data, min);
+	ft_set(*data);
+	ft_order_5(data);
+	ft_pb(data);
 }

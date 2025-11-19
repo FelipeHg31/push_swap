@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 17:31:32 by juan-her          #+#    #+#             */
-/*   Updated: 2025/11/18 14:45:33 by juan-her         ###   ########.fr       */
+/*   Updated: 2025/11/19 21:31:35 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,12 @@ static void	ft_order_size(t_data **data)
 		ft_order_4(data);
 	else if (size == 5)
 		ft_order_5(data);
+	else if (size == 6)
+		ft_order_6(data);
 	else
 	{
-		ft_set_chunks(data);
-		ft_order_num(data);
+		ft_sort_b(data);
+		ft_sort_back(data);
 	}
 }
 
@@ -58,14 +60,13 @@ int	main(int ac, char **av)
 	if (cdata == 2)
 	{
 		ft_free(&stacks);
-		ft_printf("This list is order!\n");
+		ft_printf("This list is in order!\n");
 		return (0);
 	}
 	else if (cdata == 0)
 		return (ft_free_error(&stacks));
 	ft_set(stacks);
 	ft_order_size(&stacks);
-	ft_show(stacks->a);
 	ft_free(&stacks);
 	return (0);
 }

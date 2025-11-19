@@ -6,103 +6,88 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 20:36:16 by juan-her          #+#    #+#             */
-/*   Updated: 2025/11/18 15:20:33 by juan-her         ###   ########.fr       */
+/*   Updated: 2025/11/19 21:02:04 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "movements.h"
 
-static void	ft_ext(t_data **data, t_list *m)
+static int	ft_sqrt(int n)
 {
-	int	position;
-	int	len;
+	int	i;
 
-	len = ft_lstsize((*data)->a);
-	position = m->pos;
-	if (position <= (len / 2))
-	{
-		while (position > 1)
-		{
-			ft_ra(data);
-			position--;
-		}
-		ft_pb(data);
-		if (m->id >= m->median)
-			ft_rb(data);
-	}
-	else
-	{
-		while (position <= len)
-		{
-			ft_rra(data);
-			position++;
-		}
-		ft_pb(data);
-		if (m->id >= m->median)
-			ft_rb(data);
-	}
-	ft_positions(&(*data)->a);
+	i = 0;
+	while ((i * i) < n)
+		i++;
+	return (i);
 }
 
-static void	ft_ext_b(t_data **data, t_list *m)
+void	ft_sort_b(t_data **data)
 {
-	int	position;
-	int	len;
+	int	range;
+	int	i;
 
-	len = ft_lstsize((*data)->b);
-	position = m->pos;
-	if (position <= (len / 2))
+	range = (ft_sqrt(ft_lstsize((*data)->a)) * (133 / 100));
+	i = 0;
+	while ((*data)->a)
 	{
-		while (position > 1)
+		if ((*data)->a->id <= i)
 		{
+			ft_pb(data);
 			ft_rb(data);
-			position--;
+			i++;
 		}
-		ft_pa(data);
-	}
-	else
-	{
-		while ((position <= len) && (position != 1))
+		else if ((*data)->a->id <= i + range)
 		{
-			ft_rrb(data);
-			position++;
+			ft_pb(data);
+			i++;
 		}
-		ft_pa(data);
-	}
-	ft_positions(&(*data)->b);
-}
-
-void	ft_order_num(t_data **data)
-{
-	int		ch;
-	int		size;
-	int		id;
-	int		len;
-	t_list	*node;
-
-	ch = 0;
-	size = 0;
-	id = 0;
-	len = ft_lstsize((*data)->a);
-	while (ch < (*data)->chunks)
-	{
-		if (len < (size * 2))
-			size = len;
 		else
-			size = size + (*data)->lot;
-		while (id < size)
-		{
-			node = ft_search_id((*data)->a, id);
-			ft_ext(data, node);
-			id++;
-		}
-		ch++;
+			ft_ra(data);
 	}
-	ft_show((*data)->b);
-	ft_positions(&(*data)->b);
-	while (--id >= 0)
+}
+
+static int	ft_big(t_list *list)
+{
+	int	big;
+	int	pos;
+	int	i;
+
+	big = list->id;
+	pos = 0;
+	i = 0;
+	while (list)
 	{
-		node = ft_search_id((*data)->b, id);
-		ft_ext_b(data, node);
+		if (list->id > big)
+		{
+			big = list->id;
+			pos = i;
+		}
+		list = list->next;
+		i++;
+	}
+	return (pos);
+}
+
+void	ft_sort_back(t_data **data)
+{
+	int	pos;
+	int	size;
+
+	while ((*data)->b)
+	{
+		pos = ft_big((*data)->b);
+		size = ft_lstsize((*data)->b);
+		if (pos <= (size / 2))
+		{
+			while (pos-- > 0)
+				ft_rb(data);
+		}
+		else
+		{
+			while (pos++ < size)
+				ft_rrb(data);
+		}
+		ft_pa(data);
 	}
 }

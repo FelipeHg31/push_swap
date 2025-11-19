@@ -4,6 +4,16 @@
 		"cmath": "c",
 		"type_traits": "c",
 		"movements.h": "c",
-		"free.h": "c"
+		"free.h": "c",
+		"cstdlib": "c",
+		"exception": "c",
+		"new": "c",
+		"typeinfo": "c",
+		"compare": "c",
+		"cassert": "c",
+		"climits": "c",
+		"cstdarg": "c",
+		"cstddef": "c",
+		"cstdio": "c"
 	}
 }

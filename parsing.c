@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 17:16:28 by juan-her          #+#    #+#             */
-/*   Updated: 2025/11/12 13:22:36 by juan-her         ###   ########.fr       */
+/*   Updated: 2025/11/19 21:37:53 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@ static int	ft_setnums(char *s, int *i, long *num)
 			return (0);
 		return (*num = temp, 1);
 	}
-	else
-		return (0);
+	return (0);
 }
 
 static int	ft_getnums(char *s, int *i, long *num)
@@ -62,8 +61,9 @@ static int	ft_getnums(char *s, int *i, long *num)
 static int	add_list(t_list **a, long num)
 {
 	t_list	*list;
-	t_list	*new = ft_calloc(sizeof(t_list), 1);
+	t_list	*new;
 
+	new = ft_calloc(sizeof(t_list), 1);
 	if (!new)
 		return (0);
 	new->num = num;
@@ -84,11 +84,31 @@ static int	add_list(t_list **a, long num)
 	return (1);
 }
 
+static int	ft_add(t_list **list, int num, int res)
+{
+	if (res == 0)
+	{
+		ft_freelist(list);
+		return (0);
+	}
+	else if (res == 1)
+	{
+		if (!add_list(list, num))
+		{
+			ft_freelist(list);
+			return (0);
+		}
+	}
+	else if (res == 2)
+		return (2);
+	return (1);
+}
+
 int	ft_parsing(char **av, t_list **a)
 {
 	int		pos[2];
 	long	num;
-	int		res;
+	int		res[2];
 	t_list	*list;
 
 	list = *a;
@@ -96,27 +116,18 @@ int	ft_parsing(char **av, t_list **a)
 	while (av[pos[0]])
 	{
 		pos[1] = 0;
+		if (av[pos[0]][pos[1]] == '\0')
+			return (ft_freelist(&list), 0);
 		while (av[pos[0]][pos[1]])
 		{
-			res = ft_getnums(av[pos[0]], &pos[1], &num);
-			if (res == 0)
-			{
-				ft_freelist(&list);
+			res[0] = ft_getnums(av[pos[0]], &pos[1], &num);
+			res[1] = ft_add(&list, num, res[0]);
+			if (!res[1])
 				return (0);
-			}
-			else if (res == 1)
-			{
-				if (!add_list(&list, num))
-				{
-					ft_freelist(a);
-					return (0);
-				}
-			}
-			else if (res == 2)
+			else if (res[1] == 2)
 				break ;
 		}
 		pos[0]++;
 	}
-	*a = list;
-	return (1);
+	return (*a = list, 1);
 }
