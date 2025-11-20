@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 17:16:28 by juan-her          #+#    #+#             */
-/*   Updated: 2025/11/19 21:37:53 by juan-her         ###   ########.fr       */
+/*   Updated: 2025/11/20 00:55:05 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static int	add_list(t_list **a, long num)
 	return (1);
 }
 
-static int	ft_add(t_list **list, int num, int res)
+static int	ft_add(t_list **list, int num, int res, t_list **a)
 {
 	if (res == 0)
 	{
@@ -95,7 +95,7 @@ static int	ft_add(t_list **list, int num, int res)
 	{
 		if (!add_list(list, num))
 		{
-			ft_freelist(list);
+			ft_freelist(a);
 			return (0);
 		}
 	}
@@ -121,7 +121,7 @@ int	ft_parsing(char **av, t_list **a)
 		while (av[pos[0]][pos[1]])
 		{
 			res[0] = ft_getnums(av[pos[0]], &pos[1], &num);
-			res[1] = ft_add(&list, num, res[0]);
+			res[1] = ft_add(&list, num, res[0], a);
 			if (!res[1])
 				return (0);
 			else if (res[1] == 2)

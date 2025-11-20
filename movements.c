@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 17:49:35 by juan-her          #+#    #+#             */
-/*   Updated: 2025/11/18 15:01:34 by juan-her         ###   ########.fr       */
+/*   Updated: 2025/11/20 00:16:09 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_swap(t_list **list)
 	t_list	*first;
 	t_list	*second;
 
-	if (!list || !*list || !list)
+	if (!list || !*list || !(*list)->next)
 		return ;
 	first = *list;
 	second = (*list)->next;
@@ -33,7 +33,7 @@ void	ft_pb(t_data **data)
 {
 	t_list	*node;
 
-	if (!data || !(*data))
+	if (!data || !(*data) || !(*data)->a)
 		return ;
 	node = (*data)->a;
 	(*data)->a = (*data)->a->next;
@@ -47,7 +47,7 @@ void	ft_pa(t_data **data)
 {
 	t_list	*node;
 
-	if (!data || !(*data))
+	if (!data || !(*data) || !(*data)->b)
 		return ;
 	node = (*data)->b;
 	if (node)
