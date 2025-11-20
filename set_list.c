@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 15:41:44 by juan-her          #+#    #+#             */
-/*   Updated: 2025/11/19 21:04:17 by juan-her         ###   ########.fr       */
+/*   Updated: 2025/11/20 13:49:52 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	ft_set(t_data *data)
 	pos = 0;
 	ft_positions(&(data)->a);
 	ft_set_init(data->a);
-	while (pos <= size)
+	while (pos < size)
 	{
 		node = data->a;
 		min = INT_MAX;

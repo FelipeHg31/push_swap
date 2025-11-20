@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 17:31:32 by juan-her          #+#    #+#             */
-/*   Updated: 2025/11/20 00:31:54 by juan-her         ###   ########.fr       */
+/*   Updated: 2025/11/20 14:01:25 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	main(int ac, char **av)
 	stacks = ft_calloc(sizeof(t_data), 1);
 	stacks->a = NULL;
 	if (ac < 2)
-		return (ft_free_error(&stacks));
+		return (ft_free(&stacks), 0);
 	if (!ft_parsing(av, &stacks->a))
 		return (ft_free_error(&stacks));
 	cdata = ft_check_data(stacks->a);

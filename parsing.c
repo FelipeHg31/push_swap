@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 17:16:28 by juan-her          #+#    #+#             */
-/*   Updated: 2025/11/20 00:55:05 by juan-her         ###   ########.fr       */
+/*   Updated: 2025/11/20 13:31:29 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	ft_setnums(char *s, int *i, long *num)
 	if (!s[*i])
 		return (2);
 	start = *i;
-	if (s[*i] == '-')
+	if (s[*i] == '-' || s[*i] == '+' )
 		(*i)++;
 	while (s[*i] && ft_isdigit(s[*i]))
 		(*i)++;
@@ -33,9 +33,9 @@ static int	ft_setnums(char *s, int *i, long *num)
 		if (!str)
 			return (0);
 		temp = ft_atoi(str);
+		if (temp < -2147483648 || temp > 2147483647 || ft_strlen(str) > 11)
+			return (free(str), 0);
 		free(str);
-		if (temp < -2147483648 || temp > 2147483647)
-			return (0);
 		return (*num = temp, 1);
 	}
 	return (0);
